@@ -37,7 +37,8 @@ mkdir -p "$WIDGETS_DIR"
 # Create the main screen Dart file.
 touch "$DART_FILE"
 
-# Create placeholder files in the new directories for Git tracking.
+# Create placeholder files in the new directories
+
 touch "$CONTROLLERS_DIR/init.dart"
 touch "$WIDGETS_DIR/init.dart"
 
