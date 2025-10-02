@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hackthon/screens/login/login_screen.dart';
+import 'package:hackthon/screens/on_boarding/on_boarding_screen.dart';
 import 'package:hackthon/theme/app_theme.dart';
 
 void main() {
@@ -18,7 +19,20 @@ class MainApp extends StatelessWidget {
         darkTheme: AppTheme.darkTheme,
         themeMode: ThemeMode.system,
         // home: Scaffold(body: Center(child: Text('amer World!'))),
-        home: LoginScreen(),
+        // home: LoginScreen(),
+        // home: OnBoardingScreen(),
+        home: Scaffold(
+          body: Center(
+            child: Text(
+              "السلام عليكم",
+              style: TextStyle(
+                fontFamily: 'Tajawal',
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

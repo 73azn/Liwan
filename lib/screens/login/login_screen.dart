@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hackthon/commons/widgets/primaryButton.dart';
+import 'package:hackthon/commons/widgets/primaryButtonLight.dart';
 import 'package:hackthon/theme/app_theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -64,22 +64,49 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Row(
                         spacing: 8,
                         children: [
-                          DropdownButton(
-                            items: [
-                              DropdownMenuItem(
-                                value: "text0",
-                                child: Text("text0"),
+                          InkWell(
+                            onTap: () {
+                              showModalBottomSheet(
+                                showDragHandle: true,
+                                context: context,
+                                builder: (context) {
+                                  return Container(height: 2.sw);
+                                },
+                              );
+                            },
+                            child: Container(
+                              height: 45,
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                border: BoxBorder.all(color: AppTheme.gray2),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
                               ),
-                              DropdownMenuItem(
-                                value: "text1",
-                                child: Text("text1"),
+                              child: Row(
+                                children: [
+                                  Text("🇸🇦+966"),
+                                  Icon(Icons.keyboard_arrow_down),
+                                ],
                               ),
-                            ],
-                            onChanged: (e) {},
+                            ),
                           ),
                           Flexible(
-                            child: TextField(
-                              keyboardType: TextInputType.numberWithOptions(),
+                            child: Container(
+                              height: 45,
+                              padding: EdgeInsets.symmetric(horizontal: 12),
+                              decoration: BoxDecoration(
+                                border: BoxBorder.all(color: AppTheme.gray2),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
+                              ),
+                              child: TextField(
+                                keyboardType: TextInputType.numberWithOptions(),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                ),
+                              ),
                             ),
                           ),
                         ],
@@ -88,32 +115,32 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       width: 1.sw,
                       height: 50,
-                      child: Primarybutton(
+                      child: PrimarybuttonLight(
                         text: "continue",
                         onTap: () {
                           print("ss");
                         },
                       ),
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Divider(
-                            endIndent: 10,
-                            color: AppTheme.gray1,
-                            indent: 20,
-                          ),
-                        ),
-                        Text("or"),
-                        Expanded(
-                          child: Divider(
-                            indent: 10,
-                            color: AppTheme.gray1,
-                            endIndent: 20,
-                          ),
-                        ),
-                      ],
-                    ),
+                    // Row(
+                    //   children: [
+                    //     Expanded(
+                    //       child: Divider(
+                    //         endIndent: 10,
+                    //         color: AppTheme.gray1,
+                    //         indent: 20,
+                    //       ),
+                    //     ),
+                    //     Text("or"),
+                    //     Expanded(
+                    //       child: Divider(
+                    //         indent: 10,
+                    //         color: AppTheme.gray1,
+                    //         endIndent: 20,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               ],

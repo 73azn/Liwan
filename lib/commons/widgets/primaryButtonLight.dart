@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hackthon/theme/app_theme.dart';
 
-class Primarybutton extends StatefulWidget {
+class PrimarybuttonLight extends StatefulWidget {
   String text;
   Function() onTap;
 
-  Primarybutton({super.key, required this.text, required this.onTap});
+  PrimarybuttonLight({super.key, required this.text, required this.onTap});
 
   @override
-  State<Primarybutton> createState() => _PrimarybuttonState();
+  State<PrimarybuttonLight> createState() => _PrimarybuttonLightState();
 }
 
-class _PrimarybuttonState extends State<Primarybutton> {
+class _PrimarybuttonLightState extends State<PrimarybuttonLight> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(onPressed: widget.onTap, child: Text(widget.text));

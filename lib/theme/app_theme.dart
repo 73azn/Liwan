@@ -27,6 +27,7 @@ abstract class AppTheme {
 
   // --- LIGHT THEME (Excellent as is) ---
   static final ThemeData lightTheme = ThemeData(
+    scaffoldBackgroundColor: primary,
     brightness: Brightness.light,
     colorScheme: ColorScheme(
       brightness: Brightness.light,
