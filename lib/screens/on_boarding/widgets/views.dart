@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hackthon/commons/widgets/ctx_common.dart';
 
 class Views extends StatelessWidget {
   SvgPicture svg;
@@ -14,12 +15,22 @@ class Views extends StatelessWidget {
     return Container(
       height: 200,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           svg,
           SizedBox(height: 8),
-          Text(title).tr(),
+          Text(
+            title,
+            style: context.heading3.copyWith(fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ).tr(),
           SizedBox(height: 16),
-          Text(des).tr(),
+          Text(
+            des,
+            style: context.largeTextRegular,
+            textAlign: TextAlign.center,
+          ).tr(),
         ],
       ),
     );
