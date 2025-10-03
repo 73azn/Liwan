@@ -1,3 +1,4 @@
+import 'package:animated_switcher_plus/animated_switcher_plus.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,10 +44,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 (PageViewItems.curPage > 0
                     ? TextButton(
                         onPressed: () {
-                          PageViewItems.controller.previousPage(
-                            duration: Duration(milliseconds: 500),
-                            curve: Curves.linearToEaseOut,
-                          );
+                          PageViewItems.curPage > 0
+                              ? PageViewItems.curPage -= 1
+                              : null;
                           setState(() {});
                         },
                         child: SvgPicture.asset(
@@ -79,41 +79,57 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
           child: Column(
             children: [
-              Container(
-                height: 1.30.sw,
-                child: PageView.builder(
-                  allowImplicitScrolling: false,
-                  onPageChanged: (value) {
-                    PageViewItems.curPage = value;
-                    setState(() {});
-                  },
-                  controller: PageViewItems.controller,
-                  itemCount: PageViewItems.pages.length,
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
 
-                  itemBuilder: (context, index) {
-                    return PageViewItems.pages[PageViewItems.curPage];
-                  },
+                child: Container(
+                  key: ValueKey(PageViewItems.curPage),
+                  child: PageViewItems.pages[PageViewItems.curPage],
                 ),
               ),
+              // AnimatedSwitcher(
+              //   duration: const Duration(milliseconds: 2000),
+
+              //   // The child is now directly the page you want to show.
+              //   // When 'PageViewItems.curPage' changes, AnimatedSwitcher detects
+              //   // a new child and animates the transition.
+
+              //   // ✨ IMPORTANT: Add a unique key!
+              //   // This tells the AnimatedSwitcher that the widget is actually
+              //   // different and that it needs to run the animation.
+              //   key: ValueKey<int>(PageViewItems.curPage),
+
+              //   // (Optional) Define a custom transition, like a slide.
+              //   transitionBuilder: (Widget child, Animation<double> animation) {
+              //     return FadeTransition(opacity: animation, child: child);
+              //   },
+              //   child: PageViewItems.pages[PageViewItems.curPage],
+              // ),
               SizedBox(height: 21),
-              SmoothPageIndicator(
+              // SmoothPageIndicator(
+
+              //   controller: PageViewItems.controller,
+              //   count: PageViewItems.pages.length,
+              // ),
+              AnimatedSmoothIndicator(
+                activeIndex: PageViewItems.curPage,
+                count: PageViewItems.pages.length,
                 effect: ExpandingDotsEffect(
                   activeDotColor: AppTheme.secondary,
                   dotHeight: 10,
                   dotWidth: 10,
                   dotColor: AppTheme.white,
                 ),
-                controller: PageViewItems.controller,
-                count: PageViewItems.pages.length,
               ),
               SizedBox(height: 0.1.sw),
               PrimarybuttonDark(
                 text: "next".tr(),
                 onTap: () {
-                  PageViewItems.controller.nextPage(
-                    duration: Duration(milliseconds: 500),
-                    curve: Curves.easeInToLinear,
-                  );
+                  setState(() {
+                    PageViewItems.curPage < 2
+                        ? PageViewItems.curPage += 1
+                        : null;
+                  });
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.white,
