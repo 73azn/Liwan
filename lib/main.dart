@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hackthon/commons/widgets/ctx_common.dart';
 import 'package:hackthon/screens/login/login_screen.dart';
 import 'package:hackthon/screens/on_boarding/on_boarding_screen.dart';
 import 'package:hackthon/theme/app_theme.dart';
@@ -23,14 +24,7 @@ class MainApp extends StatelessWidget {
         // home: OnBoardingScreen(),
         home: Scaffold(
           body: Center(
-            child: Text(
-              "السلام عليكم",
-              style: TextStyle(
-                fontFamily: 'Tajawal',
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child: Text("السلام عليكم", style: context.mediumTextBold),
           ),
         ),
       ),

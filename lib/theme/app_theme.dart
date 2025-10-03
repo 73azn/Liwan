@@ -29,6 +29,7 @@ abstract class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: primary,
     brightness: Brightness.light,
+
     colorScheme: ColorScheme(
       brightness: Brightness.light,
       primary: primary,
@@ -42,8 +43,7 @@ abstract class AppTheme {
     ),
     appBarTheme: AppBarTheme(backgroundColor: primary, foregroundColor: white),
     textTheme: TextTheme(
-      bodyMedium: TextStyle(color: gray),
-      titleLarge: TextStyle(color: black1),
+
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -57,6 +57,8 @@ abstract class AppTheme {
         textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
     ),
+
+    
   );
 
   // --- DARK THEME (Refactored for Consistency) ---
