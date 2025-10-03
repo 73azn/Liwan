@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackthon/theme/app_text_style.dart';
 
 extension ContextExtension on BuildContext {
   TextStyle? get displayLarge => Theme.of(this).textTheme.displayLarge;
@@ -17,4 +18,25 @@ extension ContextExtension on BuildContext {
   TextStyle? get labelMedium => Theme.of(this).textTheme.labelMedium;
   TextStyle? get labelSmall => Theme.of(this).textTheme.labelSmall;
   ColorScheme get colors => Theme.of(this).colorScheme;
+
+  //main features needed for our coustome fonts
+
+  TextStyle get heading1 => AppTextStyle.heading1;
+  TextStyle get heading2 => AppTextStyle.heading2;
+  TextStyle get heading3 => AppTextStyle.heading3;
+  TextStyle get heading4 => AppTextStyle.heading4;
+  TextStyle get heading5 => AppTextStyle.heading5;
+  TextStyle get heading6 => AppTextStyle.heading6;
+
+  TextStyle get largeTextBold => AppTextStyle.largeTextBold;
+  TextStyle get largeTextRegular => AppTextStyle.largeTextRegular;
+
+  TextStyle get mediumTextRegular => AppTextStyle.mediumTextRegular;
+  TextStyle get mediumTextBold => AppTextStyle.mediumTextBold;
+
+  TextStyle get normalTextRegular => AppTextStyle.normalTextRegular;
+  TextStyle get normalTextBold => AppTextStyle.normalTextBold;
+
+  TextStyle get smallTextRegular => AppTextStyle.smallTextRegular;
+  TextStyle get smallTextBold => AppTextStyle.smallTextBold;
 }
