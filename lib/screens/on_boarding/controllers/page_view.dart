@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hackthon/screens/on_boarding/widgets/views.dart';
 
 abstract class PageViewItems {
-  static List pages = [
+  static List<Widget> pages = [
     Views(
       svg: SvgPicture.asset("assets/img/onBoard1.svg"),
       title: "title_1",

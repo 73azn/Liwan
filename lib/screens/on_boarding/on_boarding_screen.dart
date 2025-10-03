@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,12 +30,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset("assets/img/logo.svg"),
-                Text("title"),
+                Text("title").tr(),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Icon(Icons.arrow_back_rounded), Text("skip")],
+              children: [Icon(Icons.arrow_back_rounded), Text("skip").tr()],
             ),
           ],
         ),
@@ -71,7 +72,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ),
               SizedBox(height: 0.2.sw),
               PrimarybuttonDark(
-                text: "next",
+                text: "next".tr(),
                 onTap: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.white,

@@ -13,8 +13,9 @@ void main() async {
     EasyLocalization(
       supportedLocales: [Locale('ar'), Locale('en')],
       path: 'assets/lang',
-      saveLocale: true,
       startLocale: Locale('ar'),
+      saveLocale: true,
+
       child: MainApp(),
     ),
   );
@@ -27,17 +28,19 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       child: MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         themeMode: ThemeMode.system,
         // home: Scaffold(body: Center(child: Text('amer World!'))),
         // home: LoginScreen(),
-        // home: OnBoardingScreen(),
-        home: Scaffold(
-          body: Center(
-            child: Text("السلام عليكم", style: context.mediumTextBold),
-          ),
-        ),
+        home: OnBoardingScreen(),
+        // home: Scaffold(
+        //   body: Center(
+        //     child: Text("السلام عليكم", style: context.mediumTextBold),
+        //   ),
       ),
     );
   }

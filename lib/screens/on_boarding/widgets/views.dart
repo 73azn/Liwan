@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,9 +17,9 @@ class Views extends StatelessWidget {
         children: [
           svg,
           SizedBox(height: 8),
-          Text(title),
+          Text(title).tr(),
           SizedBox(height: 16),
-          Text(des),
+          Text(des).tr(),
         ],
       ),
     );
