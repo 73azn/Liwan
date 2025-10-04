@@ -5,8 +5,10 @@ import 'package:hackthon/commons/widgets/ctx_common.dart';
 import 'package:hackthon/commons/widgets/primaryButtonDark.dart';
 import 'package:hackthon/commons/widgets/primaryButtonLight.dart';
 import 'package:hackthon/screens/login/widgets/number.dart';
+import 'package:hackthon/screens/login/widgets/pinput.dart';
 import 'package:hackthon/theme/app_theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pinput/pinput.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -189,164 +191,52 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<dynamic> AuthAndRigester(BuildContext context) {
     return showModalBottomSheet(
-                      context: context,
-                      builder: (_) {
-                        return Column(
-                          
-                        );
-                      },
-                    );
-  }
-}
-
-// Old code:
-/*
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hackthon/commons/widgets/primaryButtonLight.dart';
-import 'package:hackthon/theme/app_theme.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppTheme.primary,
-      appBar: AppBar(
-        title: Column(
-          children: [SvgPicture.asset("assets/img/logo.svg"), Text("title")],
-        ),
-        centerTitle: true,
-        toolbarHeight: 0.60.sw,
-        backgroundColor: AppTheme.primary,
-      ),
-      body: SafeArea(
-        // child: Container(
-        //   height: 500,
-        //   width: double.infinity,
-        //   decoration: BoxDecoration(
-        //     borderRadius: BorderRadius.all(Radius.circular(30)),
-        //     color: AppTheme.white,
-        //   ),
-
-        // ),
-        child: Container(
-          width: double.infinity,
-          height: 2.sw,
-
-          decoration: BoxDecoration(
-            color: AppTheme.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30),
-              topRight: Radius.circular(30),
-            ),
+      showDragHandle: true,
+      context: context,
+      // 1. Allow the sheet to be scrollable and resize
+      isScrollControlled: true,
+      builder: (_) {
+        // 2. Add padding that adjusts to the keyboard height
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 41, right: 41, top: 28),
+          // 3. (Optional but recommended) Wrap with a scroll view
+          child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-
+              spacing: 20,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text("register"),
-                Text("register_des"),
-                Text("number"),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("enter_number"),
-                    Container(
-                      width: 1.sw,
-                      height: 80,
-                      child: Row(
-                        spacing: 8,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              showModalBottomSheet(
-                                showDragHandle: true,
-                                context: context,
-                                builder: (context) {
-                                  return Container(height: 2.sw);
-                                },
-                              );
-                            },
-                            child: Container(
-                              height: 45,
-                              padding: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                border: BoxBorder.all(color: AppTheme.gray2),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
-                                ),
-                              ),
-                              child: Row(
-                                children: [
-                                  Text("🇸🇦+966"),
-                                  Icon(Icons.keyboard_arrow_down),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              height: 45,
-                              padding: EdgeInsets.symmetric(horizontal: 12),
-                              decoration: 
-                              child: TextField(
-                                keyboardType: TextInputType.numberWithOptions(),
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                    Text(
+                      "auth".tr(),
+                      style: context.heading4.copyWith(
+                        color: AppTheme.black,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Container(
-                      width: 1.sw,
-                      height: 50,
-                      child: PrimarybuttonLight(
-                        text: "continue",
-                        onTap: () {
-                          print("ss");
-                        },
+                    Text(
+                      "auth_des".tr(),
+                      style: context.smallTextBold.copyWith(
+                        color: AppTheme.gray3,
                       ),
                     ),
-                    // Row(
-                    //   children: [
-                    //     Expanded(
-                    //       child: Divider(
-                    //         endIndent: 10,
-                    //         color: AppTheme.gray1,
-                    //         indent: 20,
-                    //       ),
-                    //     ),
-                    //     Text("or"),
-                    //     Expanded(
-                    //       child: Divider(
-                    //         indent: 10,
-                    //         color: AppTheme.gray1,
-                    //         endIndent: 20,
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
                   ],
                 ),
+                PinPutWtimer(),
+                Column(
+                  children: [
+                    Text("resend".tr()),
+                    PrimarybuttonLight(onTap: () {}, text: "next_sign".tr()),
+                  ],
+                ),
+                SizedBox(height: 50),
               ],
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
-*/
