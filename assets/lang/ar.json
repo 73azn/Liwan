@@ -34,5 +34,17 @@
     "auth":"التحقق",
     "auth_des":"تم ارسال رمز التحقق إلى هاتفك يرجى ادخاله قبل انتهاء الوقت",
     "sec":"ثانية",
-    "resend":"إعادة الإرسال"
+    "resend":"إعادة الإرسال",
+    "padel_opening": "إفتتاح ملعب بادل",
+    "internet_service_launch": "تدشين خدمة إنترنت",
+    "library_opening": "إفتتاح مكتبة سدرة",
+    "new_cafe": "مقهى جديد",
+    "health_center_opening": "إفتتاح مركز صحي ضخم",
+    "event_area_a": "منطقة أ",
+    "event_area_b": "منطقة ب",
+    "event_area_c": "منطقة ج",
+    "event_central_area": "المنطقة المركزية",
+    "event_health_sports": "الصحة والرياضة",
+    "new": "جديد",
+    "event_new_recreational_area": "منطقة ترفيهية جديدة"
 }
