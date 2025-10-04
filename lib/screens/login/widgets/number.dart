@@ -54,30 +54,40 @@ class _NumberViewState extends State<NumberView> {
             ),
           ),
         ),
-        Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              border: BoxBorder.all(color: AppTheme.gray2),
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-            ),
-            child: TextField(
+        FillTextField(hint: "050 000 0000"),
+      ],
+    );
+  }
+}
+
+class FillTextField extends StatelessWidget {
+  String hint;
+  TextEditingController? controller;
+  FillTextField({super.key, required this.hint, this.controller});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          border: BoxBorder.all(color: AppTheme.gray2),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+        child: TextField(
+          controller: controller,
+          textDirection: TextDirection.ltr,
+          keyboardType: TextInputType.number,
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(horizontal: 12),
+            border: InputBorder.none,
+            hint: Text(
+              hint,
               textDirection: TextDirection.ltr,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(horizontal: 12),
-                border: InputBorder.none,
-                hint: Text(
-                  "050 000 0000",
-                  textDirection: TextDirection.ltr,
-                  style: context.normalTextRegular.copyWith(
-                    color: AppTheme.gray2,
-                  ),
-                ),
-              ),
+              style: context.normalTextRegular.copyWith(color: AppTheme.gray2),
             ),
           ),
         ),
-      ],
+      ),
     );
   }
 }

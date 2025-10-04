@@ -170,7 +170,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
-                  PrimarybuttonLight(text: "next_sign".tr(), onTap: () {}),
+                  PrimarybuttonLight(
+                    text: "next_sign".tr(),
+                    onTap: () {
+                      AuthAndRigester(context);
+                    },
+                  ),
 
                   SizedBox(height: 50),
                 ],
@@ -180,6 +185,17 @@ class _LoginScreenState extends State<LoginScreen> {
         );
       },
     );
+  }
+
+  Future<dynamic> AuthAndRigester(BuildContext context) {
+    return showModalBottomSheet(
+                      context: context,
+                      builder: (_) {
+                        return Column(
+                          
+                        );
+                      },
+                    );
   }
 }
 

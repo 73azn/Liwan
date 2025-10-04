@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hackthon/commons/widgets/ctx_common.dart';
+import 'package:hackthon/screens/home/home_screen.dart';
 import 'package:hackthon/screens/login/login_screen.dart';
 import 'package:hackthon/screens/on_boarding/on_boarding_screen.dart';
 import 'package:hackthon/screens/splash/splash_screen.dart';
@@ -44,7 +45,7 @@ class MainApp extends StatelessWidget {
         //   ),
         // home: SplashScreen(),
         // home: LoginScreen(),
-        
+        home: SplashScreen(),
       ),
     );
   }

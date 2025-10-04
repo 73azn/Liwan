@@ -16,6 +16,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   smooth_page_indicator: ^1.2.1
   animated_switcher_plus: ^1.4.0
+  pinput: ^5.0.2
 
 dev_dependencies:
   
