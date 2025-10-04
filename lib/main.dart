@@ -4,6 +4,7 @@ import 'package:hackthon/commons/widgets/ctx_common.dart';
 import 'package:hackthon/screens/login/another_screen.dart';
 import 'package:hackthon/screens/login/login_screen.dart';
 import 'package:hackthon/screens/on_boarding/on_boarding_screen.dart';
+import 'package:hackthon/screens/splash/splash_screen.dart';
 import 'package:hackthon/theme/app_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -36,12 +37,13 @@ class MainApp extends StatelessWidget {
         darkTheme: AppTheme.darkTheme,
         themeMode: ThemeMode.system,
         // home: Scaffold(body: Center(child: Text('amer World!'))),
-        home: AnotherScreen(),
+        // home: AnotherScreen(),
         // home: OnBoardingScreen(),
         // home: Scaffold(
         //   body: Center(
         //     child: Text("السلام عليكم", style: context.mediumTextBold),
         //   ),
+        home: SplashScreen(),
       ),
     );
   }
