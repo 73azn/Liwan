@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hackthon/commons/widgets/ctx_common.dart';
 import 'package:hackthon/commons/widgets/primaryButtonDark.dart';
 import 'package:hackthon/commons/widgets/primaryButtonLight.dart';
+import 'package:hackthon/screens/login/login_screen.dart';
 import 'package:hackthon/screens/on_boarding/controllers/page_view.dart';
 import 'package:hackthon/theme/app_theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -62,6 +63,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     : TextButton(
                         onPressed: () {
                           //TODO nav to login screen
+
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
                         },
                         child: Text(
                           "skip",
@@ -114,7 +122,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   setState(() {
                     PageViewItems.curPage < 2
                         ? PageViewItems.curPage += 1
-                        : null;
+                        : Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
                   });
                 },
                 style: ElevatedButton.styleFrom(

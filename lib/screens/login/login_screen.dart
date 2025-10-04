@@ -65,83 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   backgroundColor: AppTheme.white,
                 ),
                 onTap: () {
-                  showModalBottomSheet(
-                    // 1. Allow the sheet to take up more than half the screen height.
-                    isScrollControlled: true,
-                    enableDrag: true,
-                    showDragHandle: true,
-                    context: context,
-                    builder: (context) {
-                      // 2. Add padding to the bottom that matches the keyboard's height.
-                      return Padding(
-                        padding: EdgeInsets.only(
-                          bottom: MediaQuery.of(context).viewInsets.bottom,
-                        ),
-                        child: SingleChildScrollView(
-                          // 3. Make the content scrollable
-                          child: Container(
-                            width: 1.sw,
-                            padding: const EdgeInsets.all(20),
-                            child: Column(
-                              // Use mainAxisSize.min to make the column only as tall as its children
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Column(
-                                  children: [
-                                    Text(
-                                      "register".tr(),
-                                      style: context.heading4.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                        color: AppTheme.black,
-                                      ),
-                                    ),
-                                    Text(
-                                      "register_des".tr(),
-                                      style: context.smallTextBold.copyWith(
-                                        color: AppTheme.gray2,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ), // Use SizedBox instead of a spacing property
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [Text("number".tr()), NumberView()],
-                                ),
-                                Row(
-                                  children: [
-                                    SvgPicture.asset(
-                                      "assets/img/message-question.svg",
-                                    ),
-                                    Text(
-                                      "support_info",
-                                      style: context.smallTextBold,
-                                    ).tr(),
-                                    TextButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        "support_click",
-                                        style: context.smallTextBold,
-                                      ).tr(),
-                                    ),
-                                  ],
-                                ),
-                                PrimarybuttonLight(
-                                  text: "next_sign".tr(),
-                                  onTap: () {},
-                                ),
-
-                                SizedBox(height: 20),
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  );
+                  loginBottomSheet(context);
                 },
               ),
 
@@ -163,6 +87,98 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  //login bottom sheet
+  Future<dynamic> loginBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      // 1. Allow the sheet to take up more than half the screen height.
+      isScrollControlled: true,
+      enableDrag: true,
+      showDragHandle: true,
+      context: context,
+      builder: (context) {
+        // 2. Add padding to the bottom that matches the keyboard's height.
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: SingleChildScrollView(
+            // 3. Make the content scrollable
+            child: Container(
+              width: 1.sw,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                // Use mainAxisSize.min to make the column only as tall as its children
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        "register".tr(),
+                        style: context.heading4.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: AppTheme.black,
+                        ),
+                      ),
+                      Text(
+                        "register_des".tr(),
+                        style: context.smallTextBold.copyWith(
+                          color: AppTheme.gray2,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ), // Use SizedBox instead of a spacing property
+                  Column(
+                    spacing: 4,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "number".tr(),
+                        style: context.smallTextBold.copyWith(
+                          color: AppTheme.black,
+                        ),
+                      ),
+                      NumberView(),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      SvgPicture.asset("assets/img/message-question.svg"),
+                      Text(
+                        "support_info",
+                        style: context.smallTextBold.copyWith(
+                          color: AppTheme.black,
+                        ),
+                      ).tr(),
+                      TextButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.all(0),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "support_click",
+                          style: context.smallTextBold.copyWith(
+                            color: AppTheme.secondary,
+                          ),
+                        ).tr(),
+                      ),
+                    ],
+                  ),
+                  PrimarybuttonLight(text: "next_sign".tr(), onTap: () {}),
+
+                  SizedBox(height: 50),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

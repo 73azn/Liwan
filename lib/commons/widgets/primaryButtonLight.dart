@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackthon/commons/widgets/ctx_common.dart';
 import 'package:hackthon/theme/app_theme.dart';
 
 class PrimarybuttonLight extends StatefulWidget {
@@ -14,6 +15,9 @@ class PrimarybuttonLight extends StatefulWidget {
 class _PrimarybuttonLightState extends State<PrimarybuttonLight> {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: widget.onTap, child: Text(widget.text));
+    return ElevatedButton(
+      onPressed: widget.onTap,
+      child: Text(widget.text, style: context.heading6),
+    );
   }
 }

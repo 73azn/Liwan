@@ -43,7 +43,8 @@ class MainApp extends StatelessWidget {
         //     child: Text("السلام عليكم", style: context.mediumTextBold),
         //   ),
         // home: SplashScreen(),
-        home: LoginScreen(),
+        // home: LoginScreen(),
+        
       ),
     );
   }
