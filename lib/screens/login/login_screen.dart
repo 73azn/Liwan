@@ -203,36 +203,49 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           // 3. (Optional but recommended) Wrap with a scroll view
           child: SingleChildScrollView(
-            child: Column(
-              spacing: 20,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "auth".tr(),
-                      style: context.heading4.copyWith(
-                        color: AppTheme.black,
-                        fontWeight: FontWeight.bold,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                spacing: 20,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "auth".tr(),
+                        style: context.heading4.copyWith(
+                          color: AppTheme.black,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Text(
-                      "auth_des".tr(),
-                      style: context.smallTextBold.copyWith(
-                        color: AppTheme.gray3,
+                      Text(
+                        "auth_des".tr(),
+                        style: context.smallTextBold.copyWith(
+                          color: AppTheme.gray3,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                PinPutWtimer(),
-                Column(
-                  children: [
-                    Text("resend".tr()),
-                    PrimarybuttonLight(onTap: () {}, text: "next_sign".tr()),
-                  ],
-                ),
-                SizedBox(height: 50),
-              ],
+                    ],
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    child: PinPutWtimer(),
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        "resend".tr(),
+                        style: context.mediumTextBold.copyWith(
+                          color: AppTheme.secondary,
+                        ),
+                      ),
+                      PrimarybuttonLight(onTap: () {}, text: "next_sign".tr()),
+                    ],
+                  ),
+                  SizedBox(height: 50),
+                ],
+              ),
             ),
           ),
         );
