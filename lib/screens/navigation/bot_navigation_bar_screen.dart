@@ -4,14 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hackthon/screens/home/home_screen.dart';
 import 'package:hackthon/theme/app_theme.dart';
 
-class BotNavigationBar extends StatefulWidget {
-  const BotNavigationBar({super.key});
+class BotNavigationBarScreen extends StatefulWidget {
+  const BotNavigationBarScreen({super.key});
 
   @override
-  State<BotNavigationBar> createState() => _BotNavigationBarState();
+  State<BotNavigationBarScreen> createState() => _BotNavigationBarState();
 }
 
-class _BotNavigationBarState extends State<BotNavigationBar> {
+class _BotNavigationBarState extends State<BotNavigationBarScreen> {
   int selectedIndex = 0;
 
   // List of screens for navigation
