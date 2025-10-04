@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hackthon/commons/widgets/ctx_common.dart';
 import 'package:hackthon/commons/widgets/primaryButtonDark.dart';
 import 'package:hackthon/commons/widgets/primaryButtonLight.dart';
 import 'package:hackthon/theme/app_theme.dart';
@@ -67,10 +68,7 @@ class _AnotherScreenState extends State<AnotherScreen> {
             Padding(padding: EdgeInsets.only(left: 0.3.sw)),
             SvgPicture.asset("assets/img/logo.svg", height: 0.065.sh),
             Padding(padding: EdgeInsets.only(left: 0.0175.sw)),
-            Text(
-              'title'.tr(),
-              style: Theme.of(context).textTheme.headlineLarge,
-            ),
+            Text('title'.tr(), style: context.heading1),
           ],
         ),
         centerTitle: true,
@@ -139,7 +137,10 @@ class _AnotherScreenState extends State<AnotherScreen> {
                                     vertical: 4,
                                   ),
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.grey, width: 2),
+                                    border: Border.all(
+                                      color: Colors.grey,
+                                      width: 2,
+                                    ),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: DropdownButtonHideUnderline(

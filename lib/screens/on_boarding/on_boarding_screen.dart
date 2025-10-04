@@ -56,18 +56,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         ),
                       )
                     : SizedBox(width: 35, height: 35)),
-                TextButton(
-                  onPressed: () {
-                    //TODO nav to login screen
-                  },
-                  child: Text(
-                    "skip",
-                    style: context.normalTextBold.copyWith(
-                      decoration: TextDecoration.underline,
-                      decorationColor: AppTheme.white,
-                    ),
-                  ).tr(),
-                ),
+
+                PageViewItems.curPage == 2
+                    ? Text("")
+                    : TextButton(
+                        onPressed: () {
+                          //TODO nav to login screen
+                        },
+                        child: Text(
+                          "skip",
+                          style: context.normalTextBold.copyWith(
+                            decoration: TextDecoration.underline,
+                            decorationColor: AppTheme.white,
+                          ),
+                        ).tr(),
+                      ),
               ],
             ),
           ],
@@ -87,24 +90,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   child: PageViewItems.pages[PageViewItems.curPage],
                 ),
               ),
-              // AnimatedSwitcher(
-              //   duration: const Duration(milliseconds: 2000),
 
-              //   // The child is now directly the page you want to show.
-              //   // When 'PageViewItems.curPage' changes, AnimatedSwitcher detects
-              //   // a new child and animates the transition.
-
-              //   // ✨ IMPORTANT: Add a unique key!
-              //   // This tells the AnimatedSwitcher that the widget is actually
-              //   // different and that it needs to run the animation.
-              //   key: ValueKey<int>(PageViewItems.curPage),
-
-              //   // (Optional) Define a custom transition, like a slide.
-              //   transitionBuilder: (Widget child, Animation<double> animation) {
-              //     return FadeTransition(opacity: animation, child: child);
-              //   },
-              //   child: PageViewItems.pages[PageViewItems.curPage],
-              // ),
               SizedBox(height: 21),
               // SmoothPageIndicator(
 
