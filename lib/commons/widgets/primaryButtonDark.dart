@@ -22,7 +22,9 @@ class _PrimarybuttonDarkState extends State<PrimarybuttonDark> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: widget.style ?? Theme.of(context).elevatedButtonTheme.style,
+      style: widget.style != null
+          ? widget.style!.merge(Theme.of(context).elevatedButtonTheme.style)
+          : Theme.of(context).elevatedButtonTheme.style,
       onPressed: widget.onTap,
       child: Text(
         widget.text,

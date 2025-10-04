@@ -22,5 +22,11 @@
     "main":"الرئيسية",
     "explore":"استكشف",
     "community":"المجتمع",
-    "customizable_page":"تخصيص الصفحة"
+    "customizable_page":"تخصيص الصفحة",
+    "register":"التسجيل",
+    "register_des":"يرجى تسجيل الدخول او إنشاء حساب عن طريق ادخال رقم هاتفك",
+    "number":"ادخل رقم الهاتف",
+    "support_info":"تواجه مشكلة ؟ تواصل مع",
+    "support_click":" الدعم الفني",
+    "next_sign":"المتابعة"
 }

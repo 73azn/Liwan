@@ -4,58 +4,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hackthon/commons/widgets/ctx_common.dart';
 import 'package:hackthon/commons/widgets/primaryButtonDark.dart';
 import 'package:hackthon/commons/widgets/primaryButtonLight.dart';
+import 'package:hackthon/screens/login/widgets/number.dart';
 import 'package:hackthon/theme/app_theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class AnotherScreen extends StatefulWidget {
-  const AnotherScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<AnotherScreen> createState() => _AnotherScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _AnotherScreenState extends State<AnotherScreen> {
-  List<String> countryCode = [
-    "🇸🇦 +966",
-    "🇪🇬 +20",
-    "🇦🇪 +971",
-    "🇶🇦 +974",
-    "🇰🇼 +965",
-    "🇴🇲 +968",
-    "🇧🇭 +973",
-    "🇯🇴 +962",
-    "🇱🇧 +961",
-    "🇸🇾 +963",
-    "🇮🇶 +964",
-    "🇾🇪 +967",
-    "🇲🇦 +212",
-    "🇩🇿 +213",
-    "🇹🇳 +216",
-    "🇱🇾 +218",
-    "🇺🇸 +1",
-    "🇨🇦 +1",
-    "🇬🇧 +44",
-    "🇫🇷 +33",
-    "🇩🇪 +49",
-    "🇮🇹 +39",
-    "🇪🇸 +34",
-    "🇹🇷 +90",
-    "🇮🇳 +91",
-    "🇵🇰 +92",
-    "🇧🇩 +880",
-    "🇯🇵 +81",
-    "🇨🇳 +86",
-    "🇰🇷 +82",
-    "🇮🇩 +62",
-    "🇧🇷 +55",
-    "🇲🇽 +52",
-    "🇦🇷 +54",
-    "🇿🇦 +27",
-    "🇦🇺 +61",
-    "🇳🇿 +64",
-  ];
-  String? selectedCountryCode = "🇸🇦 +966";
-
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,11 +24,14 @@ class _AnotherScreenState extends State<AnotherScreen> {
       // AppBar Area, where we have a logo and "ليوان" title
       appBar: AppBar(
         title: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(padding: EdgeInsets.only(left: 0.3.sw)),
-            SvgPicture.asset("assets/img/logo.svg", height: 0.065.sh),
-            Padding(padding: EdgeInsets.only(left: 0.0175.sw)),
-            Text('title'.tr(), style: context.heading1),
+            SvgPicture.asset("assets/img/logo.svg", height: 54.8, width: 54.8),
+            Text(
+              'title'.tr(),
+              style: context.heading3.copyWith(fontWeight: FontWeight.bold),
+            ),
           ],
         ),
         centerTitle: true,
@@ -78,129 +41,126 @@ class _AnotherScreenState extends State<AnotherScreen> {
 
       // The middle House picture Area, where we have the house picture and "حياك في حيك" title
       body: SafeArea(
-        child: Column(
-          children: [
-            // Middle Area contain (House picture & حياك في حيك)
-            Padding(padding: EdgeInsets.fromLTRB(1.sw, 0.1.sh, 0, 0)),
-            SvgPicture.asset(
-              "assets/img/homeIllustration.svg",
-              height: 0.28.sh,
-            ),
-            Text(
-              'greeting'.tr(),
-              style: Theme.of(context).textTheme.headlineLarge,
-            ),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              // Middle Area contain (House picture & حياك في حيك)
+              Padding(padding: EdgeInsets.fromLTRB(1.sw, 0.1.sh, 0, 0)),
+              SvgPicture.asset(
+                "assets/img/homeIllustration.svg",
+                height: 0.28.sh,
+              ),
+              Text(
+                'greeting'.tr(),
+                style: context.heading3.copyWith(fontWeight: FontWeight.bold),
+              ),
 
-            Spacer(),
+              Spacer(),
 
-            // Bottom Area, contain (المتابعة كضيف & تسجيل الدخول\إنشاء حساب)
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.03.sw, 0, 0.03.sw, 0),
-              child: ElevatedButton(
-                onPressed: () {
-                  showModalBottomSheet(
-                    context: context,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(30),
-                        topLeft: Radius.circular(30),
-                      ),
-                    ),
-                    builder: ((context) {
-                      // "التسجيل" area, where you can input your phone number and signing in
-                      return Container(
-                        height: 0.45.sh,
-                        width: 1.sh,
-
-                        // Here are the all data when you press "التسجيل" button
-                        child: Column(
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 0.02.sh)),
-                            Text(
-                              'registration'.tr(),
-                              style: context.headlineSmall,
-                            ),
-
-                            // I have a problem here
-                            Text(
-                              'login_prompt'.tr(),
-                              style: context.bodyMedium,
-                              textAlign: TextAlign.right,
-                            ),
-
-                            Row(
-                              children: [
-                                // Here starts the Dropdown Button for countries
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 12,
-                                    vertical: 4,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: DropdownButtonHideUnderline(
-                                    child: DropdownButton<String>(
-                                      value: selectedCountryCode,
-                                      isDense: true,
-                                      items: countryCode
-                                          .map(
-                                            (toElement) =>
-                                                DropdownMenuItem<String>(
-                                                  value: toElement,
-                                                  child: Text(toElement),
-                                                ),
-                                          )
-                                          .toList(),
-                                      onChanged: (toElement) => setState(
-                                        () => selectedCountryCode = toElement,
-                                      ),
-                                      // Dropdown arrow == Does not do anything. It supposed to change the place of the arrow
-                                      icon: Icon(
-                                        Icons.arrow_drop_down,
-                                        size: 20,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      );
-                    }),
-                  );
-                },
+              // Bottom Area, contain (المتابعة كضيف & تسجيل الدخول\إنشاء حساب)
+              PrimarybuttonDark(
+                text: "login_register".tr(),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.white,
-                  foregroundColor: AppTheme.primary, // Text on the button
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
                 ),
-                child: Text('login_register'.tr()),
+                onTap: () {
+                  showModalBottomSheet(
+                    // 1. Allow the sheet to take up more than half the screen height.
+                    isScrollControlled: true,
+                    enableDrag: true,
+                    showDragHandle: true,
+                    context: context,
+                    builder: (context) {
+                      // 2. Add padding to the bottom that matches the keyboard's height.
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom,
+                        ),
+                        child: SingleChildScrollView(
+                          // 3. Make the content scrollable
+                          child: Container(
+                            width: 1.sw,
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              // Use mainAxisSize.min to make the column only as tall as its children
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Column(
+                                  children: [
+                                    Text(
+                                      "register".tr(),
+                                      style: context.heading4.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                        color: AppTheme.black,
+                                      ),
+                                    ),
+                                    Text(
+                                      "register_des".tr(),
+                                      style: context.smallTextBold.copyWith(
+                                        color: AppTheme.gray2,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ), // Use SizedBox instead of a spacing property
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [Text("number".tr()), NumberView()],
+                                ),
+                                Row(
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/img/message-question.svg",
+                                    ),
+                                    Text(
+                                      "support_info",
+                                      style: context.smallTextBold,
+                                    ).tr(),
+                                    TextButton(
+                                      onPressed: () {},
+                                      child: Text(
+                                        "support_click",
+                                        style: context.smallTextBold,
+                                      ).tr(),
+                                    ),
+                                  ],
+                                ),
+                                PrimarybuttonLight(
+                                  text: "next_sign".tr(),
+                                  onTap: () {},
+                                ),
+
+                                SizedBox(height: 20),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
-            ),
 
-            // Space between  "المتابعة ضكيف" and "المتابعة كضيف & تسجيل الدخول\إنشاء حساب)" buttons
-            Padding(padding: EdgeInsets.only(top: 0.04.sw)),
+              // Space between  "المتابعة ضكيف" and "المتابعة كضيف & تسجيل الدخول\إنشاء حساب)" buttons
+              Padding(padding: EdgeInsets.only(top: 0.04.sw)),
 
-            // Clikable "المتابعة كضيف"
-            InkWell(
-              onTap: () {},
-              child: Text(
-                'continue_as_guest'.tr(),
-                style: context.headlineSmall,
+              // Clikable "المتابعة كضيف"
+              InkWell(
+                onTap: () {},
+                child: Text(
+                  'continue_as_guest'.tr(),
+                  style: context.heading6.copyWith(fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
 
-            // So it can have a space under "المتابعة كضيف"
-            Padding(padding: EdgeInsets.only(top: 0.065.sw)),
-          ],
+              // So it can have a space under "المتابعة كضيف"
+              Padding(padding: EdgeInsets.only(top: 0.065.sw)),
+            ],
+          ),
         ),
       ),
     );
@@ -306,12 +266,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Container(
                               height: 45,
                               padding: EdgeInsets.symmetric(horizontal: 12),
-                              decoration: BoxDecoration(
-                                border: BoxBorder.all(color: AppTheme.gray2),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
-                                ),
-                              ),
+                              decoration: 
                               child: TextField(
                                 keyboardType: TextInputType.numberWithOptions(),
                                 decoration: InputDecoration(
@@ -363,4 +318,3 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 */
-

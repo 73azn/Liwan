@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hackthon/commons/widgets/ctx_common.dart';
-import 'package:hackthon/screens/login/another_screen.dart';
 import 'package:hackthon/screens/login/login_screen.dart';
 import 'package:hackthon/screens/on_boarding/on_boarding_screen.dart';
 import 'package:hackthon/screens/splash/splash_screen.dart';
@@ -43,7 +42,8 @@ class MainApp extends StatelessWidget {
         //   body: Center(
         //     child: Text("السلام عليكم", style: context.mediumTextBold),
         //   ),
-        home: SplashScreen(),
+        // home: SplashScreen(),
+        home: LoginScreen(),
       ),
     );
   }
