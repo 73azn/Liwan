@@ -14,6 +14,7 @@ import 'package:hackthon/screens/home/widgets/current_location_widget.dart';
 import 'package:hackthon/screens/home/widgets/customizable_page_button_widget.dart';
 import 'package:hackthon/screens/home/widgets/neighborhood_new_widget.dart';
 import 'package:hackthon/screens/home/widgets/news_card_widget.dart';
+import 'package:hackthon/screens/home/widgets/page_indicator_widget.dart';
 import 'package:hackthon/screens/home/widgets/section_widget.dart';
 import 'package:hackthon/theme/app_theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -192,20 +193,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(height: 16.h),
-            // Page Indicator
-            Center(
-              child: SmoothPageIndicator(
-                controller: _pageController,
-                count: indicatorItems.length,
-                effect: ExpandingDotsEffect(
-                  activeDotColor: AppTheme.secondary,
-                  dotColor: AppTheme.gray4,
-                  dotHeight: 8.h,
-                  dotWidth: 8.w,
-                  expansionFactor: 3,
-                ),
-              ),
-            ),
+            // Page Indicator for the 3 ads
+            PageIndicatorWidget(pageController: _pageController, indicatorItems: indicatorItems),
             SizedBox(height: 32.h),
 
             // Categories Section:
