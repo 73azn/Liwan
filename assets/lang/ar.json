@@ -28,5 +28,7 @@
     "number":"ادخل رقم الهاتف",
     "support_info":"تواجه مشكلة ؟ تواصل مع",
     "support_click":" الدعم الفني",
-    "next_sign":"المتابعة"
+    "next_sign":"المتابعة",
+    "current_location":"موقعك الحالي",
+    "neighborhood_news":"أخبار الحي"
 }
