@@ -155,3 +155,14 @@ The project follows a clean and scalable feature-first folder structure.
 To run the application on your emulator or physical device, use the following command:
 ```sh
 flutter run
+
+
+```
+
+# Authors 
+
+## Ameir Nawab
+## Talal Althobiti
+## Shaden Aljlhihi
+## Rahaf Aljaber
+## Mohammad Abalhawil
