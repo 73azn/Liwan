@@ -77,7 +77,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
               // Clikable "المتابعة كضيف"
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (builder) => NavigationScreen()),
+                  );
+                },
                 child: Text(
                   'continue_as_guest'.tr(),
                   style: context.heading6.copyWith(fontWeight: FontWeight.bold),
