@@ -6,6 +6,7 @@ import 'package:hackthon/commons/widgets/primaryButtonDark.dart';
 import 'package:hackthon/commons/widgets/primaryButtonLight.dart';
 import 'package:hackthon/screens/login/widgets/number.dart';
 import 'package:hackthon/screens/login/widgets/pinput.dart';
+import 'package:hackthon/screens/navigation/navigation_screen.dart';
 import 'package:hackthon/theme/app_theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinput/pinput.dart';
@@ -240,7 +241,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: AppTheme.secondary,
                         ),
                       ),
-                      PrimarybuttonLight(onTap: () {}, text: "next_sign".tr()),
+                      PrimarybuttonLight(
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => NavigationScreen(),
+                            ),
+                          );
+                        },
+                        text: "next_sign".tr(),
+                      ),
                     ],
                   ),
                   SizedBox(height: 50),

@@ -27,6 +27,7 @@ abstract class AppTheme {
 
   // --- LIGHT THEME (Excellent as is) ---
   static final ThemeData lightTheme = ThemeData(
+    fontFamily: 'Tajawal',
     scaffoldBackgroundColor: primary,
     brightness: Brightness.light,
 
@@ -42,9 +43,7 @@ abstract class AppTheme {
       onError: white,
     ),
     appBarTheme: AppBarTheme(backgroundColor: primary, foregroundColor: white),
-    textTheme: TextTheme(
-
-    ),
+    textTheme: TextTheme(),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -57,8 +56,6 @@ abstract class AppTheme {
         textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
     ),
-
-    
   );
 
   // --- DARK THEME (Refactored for Consistency) ---

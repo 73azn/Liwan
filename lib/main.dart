@@ -46,7 +46,7 @@ class MainApp extends StatelessWidget {
         //   ),
         // home: SplashScreen(),
         // home: LoginScreen(),
-        home: NavigationScreen(),
+        home: SplashScreen(),
         // home: SplashScreen(),
       ),
     );
